@@ -13,7 +13,7 @@ This project was build at [Diversion 2023](https://diversion.tech/) 💫
 
 - Whenever we try to learn a new technology we come across a lot of errors and  we cannot find what's going wrong. Most of the times we waste our time in searching for a working soluiton on StackoverFlow or Googling our doubts. NOW CHATGPT is the new crazeee....
 - BUT BUT... oftenly we cannot find the optimised or easily understandable code on the net. EVEN CHAT GPT fails here...  
-- Issues before PRs. If you plan to make a contribution, please make sure there is an issue for it. You can either find an existing issue or open a new issue if none exists.
+
 
 
 ### How CodeHelp helps you in this situation?
