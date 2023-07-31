@@ -4,7 +4,6 @@ const {
 } = require("agora-access-token");
 
 const generateJoinChannelToken = (teacherId = "", studentId = "") => {
-  console.log(process.env.AGORA_APPID);
   let appId = process.env.AGORA_APPID;
   let appCert = process.env.AGORA_APPCERT;
   let channel = teacherId + studentId;

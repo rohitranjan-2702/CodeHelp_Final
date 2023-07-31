@@ -9,7 +9,15 @@ const def = {
 
 const TutorLogin = () => {
   const [loginstate, setLoginState] = useState(def);
-  const { setUserName, setUserEmail, setUserSkills, setUserEdu, setIsLoggedIn, setUserType, setUserId } = useContext(LoginContext);
+  const {
+    setUserName,
+    setUserEmail,
+    setUserSkills,
+    setUserEdu,
+    setIsLoggedIn,
+    setUserType,
+    setUserId,
+  } = useContext(LoginContext);
   const navigate = useNavigate();
 
   const inputChange = (e) => {
@@ -32,7 +40,7 @@ const TutorLogin = () => {
       redirect: "follow",
     };
 
-    fetch("http://65.0.30.70:5000/teacher/login", requestOptions)
+    fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/teacher/login`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -51,7 +59,7 @@ const TutorLogin = () => {
             name: result.name,
             isAuthed: true,
             type: result.type,
-            email: result.email
+            email: result.email,
           })
         );
         navigate("/profileteacher");

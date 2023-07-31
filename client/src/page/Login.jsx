@@ -34,7 +34,7 @@ const Login = () => {
       redirect: "follow",
     };
 
-    fetch("http://65.0.30.70:5000/user/login", requestOptions)
+    fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/user/login`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);

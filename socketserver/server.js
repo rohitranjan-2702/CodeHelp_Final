@@ -27,6 +27,7 @@ io.on("connection", async (socket) => {
 
   //if conn with a teacher socket
   socket.on("teacherOnline", (payload) => {
+    console.log("teacher ", teacherId, " is online");
     teacherId = payload.teacherId;
     socket.join(teacherId);
     socket.join("tutors");
@@ -34,7 +35,7 @@ io.on("connection", async (socket) => {
   socket.on("questionAccepted", (payload) => {
     studentId = payload.studentId;
     teacherId = payload.teacherId;
-    io.to("tutors").emit("removeQuestion", { studentId })
+    io.to("tutors").emit("removeQuestion", { studentId });
     io.to(studentId).to(teacherId).emit("moveToCall", { studentId, teacherId });
     // socket.to(teacherId).emit("moveToCall", { studentId, teacherId });
   });

@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
-import { LoginContext } from "../contexts/LoginContext";
 
-const socket = io.connect("http://43.204.36.222:4000");
+const socket = io.connect(`${process.env.REACT_APP_SOCKET_BASE_URL}`);
 
 function StudentDoubt() {
   const studentId = JSON.parse(localStorage.getItem("user")).id;
@@ -21,7 +20,7 @@ function StudentDoubt() {
         );
         throw new Error("questionid != studentid");
       }
-      console.log(`question answered ${JSON.stringify(payload)}`);
+      console.log("question answered", JSON.stringify(payload));
       resultRef.current.innerText = "Video call opening...";
       await handleMoveToCall(payload.teacherId, payload.studentId);
       navigate("/video");
@@ -44,20 +43,21 @@ function StudentDoubt() {
     };
 
     const result = await fetch(
-      "http://65.0.30.70:5000/agora/CallCredentials",
+      `${process.env.REACT_APP_SERVER_BASE_URL}/agora/CallCredentials`,
       requestOptions
     )
       .then((response) => response.json())
       .then((result) => result)
       .catch((error) => console.log("error", error));
 
-    console.log(result);
+    console.log("call credentials", result);
     localStorage.setItem("video", JSON.stringify(result));
     return { result };
-  }; //TODO: handle it
+  };
 
   const sendQuestion = (e) => {
     e.preventDefault();
+    console.log("questionAsked", question, studentId);
     socket.emit("questionAsked", { question, studentId });
     setQuestion("");
     resultRef.current.innerText = "Waiting for tutors to accept...";

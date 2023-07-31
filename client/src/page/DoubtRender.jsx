@@ -3,33 +3,44 @@ import React from "react";
 const DoubtRender = () => {
   return (
     <>
-    <section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap w-full mb-20">
-      <div class=" w-full mb-6 lg:mb-0">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Incoming Doubts</h1>
-      </div>
-    </div>
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-wrap w-full mb-20">
+            <div class=" w-full mb-6 lg:mb-0">
+              <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+                Incoming Doubts
+              </h1>
+            </div>
+          </div>
 
-<div className='flex justify-center'>
-        <div class="w-[400px] rounded-lg border border-gray-400 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-    <a href="#">
-        <img class="rounded-t-lg" src="" alt="" />
-    </a>
-    <div class="p-5">
-    <p class="flex justify-end font-medium text-lg"> 05:00</p>
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">#html, #css</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Dummy doubt kjbrivibiv</p>
-        <a href="#" class="inline-flex items-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> Solve </a>
-        <a href="#" class="inline-flex items-center rounded-lg bg-red-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 m-2"> Skip </a>
+          <div className="flex justify-center">
+            <div class="w-[400px] rounded-lg border border-gray-400 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+              <button>
+                <img class="rounded-t-lg" src="" alt="" />
+              </button>
+              <div class="p-5">
+                <p class="flex justify-end font-medium text-lg"> 05:00</p>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  #html, #css
+                </h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Dummy doubt kjbrivibiv
+                </p>
+                <button class="inline-flex items-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  {" "}
+                  Solve{" "}
+                </button>
+                <button class="inline-flex items-center rounded-lg bg-red-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 m-2">
+                  {" "}
+                  Skip{" "}
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-</div>
+      </section>
 
-  </div>
-</section>
-
-{/* <section class="text-gray-600 body-font">
+      {/* <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-wrap -m-4">
       <div class="p-4 md:w-1/3">
@@ -122,7 +133,6 @@ const DoubtRender = () => {
     </div>
   </div>
 </section> */}
-
     </>
   );
 };

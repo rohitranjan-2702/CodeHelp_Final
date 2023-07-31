@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
-const socket = io.connect("http://43.204.36.222:4000");
+const socket = io.connect(`${process.env.REACT_APP_SOCKET_BASE_URL}`);
 
 function TeacherDoubt() {
   const teacherId = JSON.parse(localStorage.getItem("user")).id;
@@ -20,6 +20,7 @@ function TeacherDoubt() {
           if (questionObj.studentId === studentId) {
             return false;
           }
+          return true;
         }),
       ]);
     });
@@ -35,7 +36,7 @@ function TeacherDoubt() {
     socket.on("questionAvailable", (payload) => {
       const studentId = payload.studentId;
       const question = payload.question;
-
+      console.log("new question ", question, studentId);
       setQuestions([...questions, { studentId, question }]);
     });
 
@@ -61,23 +62,23 @@ function TeacherDoubt() {
     };
 
     const result = await fetch(
-      "http://65.0.30.70:5000/agora/CallCredentials",
+      `${process.env.REACT_APP_SERVER_BASE_URL}/agora/CallCredentials`,
       requestOptions
     )
       .then((response) => response.json())
       .then((result) => result)
       .catch((error) => console.log("error", error));
 
-    console.log(result);
+    console.log("call credentials", result);
     localStorage.setItem("video", JSON.stringify(result));
     return { result };
-  }; //TODO: handle it
+  };
 
   const handleAnswer = (e, studentId) => {
     e.preventDefault();
     socket.emit("questionAccepted", { studentId, teacherId });
     setQuestions([]);
-  }; //TODO: handle it
+  };
 
   const handleDecline = (e, studentId) => {
     e.preventDefault();
@@ -86,9 +87,10 @@ function TeacherDoubt() {
         if (question.studentId === studentId) {
           return false;
         }
+        return true;
       })
     );
-  }; //TODO: handle it
+  };
 
   return (
     <>
@@ -103,7 +105,7 @@ function TeacherDoubt() {
               return (
                 <div className="flex justify-center">
                   <div
-                    className="question http://localhost:56954/ p-10 flex-col border bg-slate-900 rounded-xl m-1"
+                    className="question p-10 flex-col border bg-slate-900 rounded-xl m-1"
                     key={questionObj.studentId}
                     studentId={questionObj.studentId}
                   >

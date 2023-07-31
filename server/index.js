@@ -1,8 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const errorMiddleware = require("./middleware/errorMiddleware");
 const connection = require("./database/db");
-require("dotenv").config();
 const teacherRoute = require("./routes/teacherRoute");
 const userRoute = require("./routes/userRoutes");
 const agoraRoute = require("./routes/agoraRoute");

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       <section class="text-gray-600 body-font">
@@ -31,16 +31,28 @@ const Home = () => {
         </div>
       </section>
 
-<section class="text-gray-100 body-font lg:m-10 m-6 border-black rounded-2xl bg-slate-200">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
-      <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900">Want to help hundreds of student out there, become a tutor at CodeHelp.</h1>
-      <button onClick={() => navigate("/signuptut")} class="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg sm:mt-0 m-3">SignUp as a Tutor</button>
-      <button onClick={() => navigate("/tutor/login")} class="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg sm:mt-0 m-3">Login</button>
-    </div>
-  </div>
-</section>
-
+      <section class="text-gray-100 body-font lg:m-10 m-6 border-black rounded-2xl bg-slate-200">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+            <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900">
+              Want to help hundreds of student out there, become a tutor at
+              CodeHelp.
+            </h1>
+            <button
+              onClick={() => navigate("/signuptut")}
+              class="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg sm:mt-0 m-3"
+            >
+              SignUp as a Tutor
+            </button>
+            <button
+              onClick={() => navigate("/tutor/login")}
+              class="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg sm:mt-0 m-3"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

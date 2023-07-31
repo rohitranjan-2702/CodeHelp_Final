@@ -9,7 +9,7 @@ const Header = () => {
   const toggle = () => {
     sethamOpen(!hamOpen);
   };
-  const { isLoggedIn, setIsLoggedIn, setUserName, setUserType, userType } =
+  const { isLoggedIn, setIsLoggedIn, setUserName, userType } =
     useContext(LoginContext);
 
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Header = () => {
       <div class="shadow-lg ">
         <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 ">
           <div class="container flex flex-wrap items-center justify-between mx-auto">
-            <a href="/" class="flex items-center">
+            <div onClick={() => navigate("/")} class="flex items-center">
               <img
                 src="https://res.cloudinary.com/dlmgrochr/image/upload/v1677308464/image-removebg-preview_10_ewg8zc.png"
                 class="h-6 mr-3 sm:h-9"
@@ -37,7 +37,7 @@ const Header = () => {
               <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
                 CodeHelp
               </span>
-            </a>
+            </div>
             <div class="flex md:order-2">
               {isLoggedIn ? (
                 <div>
@@ -104,7 +104,7 @@ const Header = () => {
                       navigate("/");
                     }}
                   >
-                    <a href="/">Home</a>
+                    <div>Home</div>
                   </li>
                   {userType === "user" ? (
                     <li
@@ -113,18 +113,14 @@ const Header = () => {
                         navigate("/doubt");
                       }}
                     >
-                      <a>Ask a Doubt</a>
+                      <div>Ask a Doubt</div>
                     </li>
                   ) : (
-                    <li class="hover:bg-gray-200 py-4 px-6 w-full">
-                      <a
-                        href="/doubtSection"
-                        onClick={() => {
-                          navigate("/doubtSection");
-                        }}
-                      >
-                        Doubt-T
-                      </a>
+                    <li
+                      class="hover:bg-gray-200 py-4 px-6 w-full"
+                      onClick={() => navigate("/doubtSection")}
+                    >
+                      <div>Doubt-T</div>
                     </li>
                   )}
                   <li
@@ -146,50 +142,50 @@ const Header = () => {
             >
               <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
-                  <a
-                    href="/"
+                  <div
+                    onClick={() => navigate("/")}
                     class="block py-2 pl-3 pr-4 text-black rounded md:bg-transparent  md:p-0 dark:text-white"
                     aria-current="page"
                   >
                     Home
-                  </a>
+                  </div>
                 </li>
                 {userType === "user" ? (
                   <li>
-                    <a
-                      href="/doubt"
+                    <div
+                      onClick={() => navigate("/doubt")}
                       class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     >
-                      Ask a Doubt
-                    </a>
+                      Ask div Doubt
+                    </div>
                   </li>
                 ) : (
                   <li>
-                    <a
-                      href="/doubtSection"
+                    <div
+                      onClick={() => navigate("/doubtSection")}
                       class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     >
                       Doubts-T
-                    </a>
+                    </div>
                   </li>
                 )}
                 {userType === "user" ? (
                   <li>
-                    <a
-                      href="/profilestudent"
+                    <div
+                      onClick={() => navigate("/profilestudent")}
                       class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     >
                       Profile
-                    </a>
+                    </div>
                   </li>
                 ) : (
                   <li>
-                    <a
-                      href="/profileteacher"
+                    <div
+                      onClick={() => navigate("/profileteacher")}
                       class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     >
                       Profile
-                    </a>
+                    </div>
                   </li>
                 )}
               </ul>

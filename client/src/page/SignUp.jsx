@@ -35,7 +35,7 @@ const Signup = () => {
       redirect: "follow",
     };
 
-    fetch("http://65.0.30.70:5000/user/register", requestOptions)
+    fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/user/register`, requestOptions)
       .then((response) => {
         // if (response.status !== 200) {
         //   throw new Error("something went wrong");

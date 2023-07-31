@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Pricing from "../component/Pricing";
 import { LoginContext } from "../contexts/LoginContext";
 
 const Profilestudent = () => {
   const { userName } = useContext(LoginContext);
   const { userEmail } = useContext(LoginContext);
-  const { user } = useContext(LoginContext);
+  // const { user } = useContext(LoginContext);
 
   // useEffect( (e) => {
   // var requestOptions = {

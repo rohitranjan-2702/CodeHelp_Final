@@ -1,6 +1,7 @@
 const expressAsyncHandler = require("express-async-handler");
 const shortid = require("shortid");
 const Razorpay = require("razorpay");
+const crypto = require("crypto");
 
 
 const razorpay = new Razorpay({
@@ -16,7 +17,6 @@ const verifyPaymentDetails = expressAsyncHandler(async (req, res) => {
 
   console.log(req.body);
 
-  const crypto = require("crypto");
 
   const shasum = crypto.createHmac("sha256", secret);
   shasum.update(JSON.stringify(req.body));

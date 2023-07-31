@@ -1,7 +1,7 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../contexts/LoginContext"; 
+import { LoginContext } from "../contexts/LoginContext";
 const options = [
   { label: "HTML", value: "html" },
   { label: "CSS", value: "css" },
@@ -16,20 +16,17 @@ const def = {
   name: "",
   email: "",
   password: "",
-  skill:[],
-  education:"",
-  
-  
- 
+  skill: [],
+  education: "",
 };
 
 const Signuptut = () => {
   const [selected, setSelected] = useState([]);
- 
-    const ashu=selected.map((e)=>{
-     return e.value;
-    })
-  
+
+  const ashu = selected.map((e) => {
+    return e.value;
+  });
+
   //console.log(selected);
   const [signstate, setSignState] = useState(def);
   const { setUserName, setIsLoggedIn, setUserType } = useContext(LoginContext);
@@ -57,7 +54,7 @@ const Signuptut = () => {
       redirect: "follow",
     };
 
-    fetch("http://65.0.30.70:5000/teacher/register", requestOptions)
+    fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/teacher/register`, requestOptions)
       .then((response) => {
         // if (response.status !== 200) {
         //   throw new Error("something went wrong");
@@ -85,7 +82,6 @@ const Signuptut = () => {
     setSignState(def);
   };
 
-  
   return (
     <>
       <div class="flex justify-center">
@@ -93,9 +89,9 @@ const Signuptut = () => {
           <p class="flex justify-center font-bold text-4xl">Tutor SignUp</p>
           <p class="m-5">Enter Your Fname</p>
           <input
-           type="name"
-                name="name"
-                id="floating_name"
+            type="name"
+            name="name"
+            id="floating_name"
             class=" w-full p-3 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
             placeholder="First name"
             onChange={(e) => onInputChange(e)}
@@ -103,18 +99,17 @@ const Signuptut = () => {
           <p class="m-5">Education</p>
           <input
             type="education"
-                name="education"
-                id="floating_education"
+            name="education"
+            id="floating_education"
             class="w-full  p-3 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
             placeholder="education"
             onChange={(e) => onInputChange(e)}
           />
           <p class="m-5">Enter Email</p>
           <input
-           
             type="email"
-                name="email"
-                id="floating_email"
+            name="email"
+            id="floating_email"
             class="w-full p-3 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
             placeholder="email Id"
             onChange={(e) => onInputChange(e)}
@@ -133,28 +128,31 @@ const Signuptut = () => {
               hasSelectAll={false}
             />
           </div>
-         
- <div className="group relative z-0 mb-6 w-full">
- <p class="m-5">Password</p>
-              <input
-                type="password"
-                name="password"
-                id="floating_password"
-                class="w-full p-3 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
-                placeholder=" "
-                required
-                onChange={(e) => onInputChange(e)}
-                // onChange={(e) => onInputChange(e)}
-              />
-             
-                
-              
-            </div>
-            <div class="flex justify-center">
-               <button onClick={(e) => {
+
+          <div className="group relative z-0 mb-6 w-full">
+            <p class="m-5">Password</p>
+            <input
+              type="password"
+              name="password"
+              id="floating_password"
+              class="w-full p-3 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
+              placeholder=" "
+              required
+              onChange={(e) => onInputChange(e)}
+              // onChange={(e) => onInputChange(e)}
+            />
+          </div>
+          <div class="flex justify-center">
+            <button
+              onClick={(e) => {
                 handleSubmit(e);
-              }} type="button" class=" mt-5 align-center text-white bg-emerald-700 hover:bg-emerald-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">SignUp as a Tutor</button>
-            </div>
+              }}
+              type="button"
+              class=" mt-5 align-center text-white bg-emerald-700 hover:bg-emerald-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+              SignUp as a Tutor
+            </button>
+          </div>
         </div>
       </div>
     </>
